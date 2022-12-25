@@ -9,11 +9,21 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-        let menu = document.querySelector('.video-speeds,.menu');
-        let speedOptions = ["1.75", "2.00", "2.25", "2.50"];
-        for (let i = 0; i < 4; i++){
-            let newOptionDiv = `<li data-speed="${speedOptions[i]}"><button class="control speed-option" tabindex="-1" aria-pressed="false">${speedOptions[i]}x</button></li>`
-            menu.insertAdjacentHTML("afterbegin",newOptionDiv);
-        }
-})();
+function addOptions(){
+    let menu = document.querySelector('.video-speeds,.menu');
+    let speedOptions = ["1.75", "2.00", "2.25", "2.50"];
+    for (let i = 0; i < 4; i++){
+        let newOptionDiv = `<li data-speed="${speedOptions[i]}"><button class="control speed-option" tabindex="-1" aria-pressed="false">${speedOptions[i]}x</button></li>`
+        menu.insertAdjacentHTML("afterbegin",newOptionDiv);
+    }
+}
+
+(function main() {
+    addOptions(); // Add options on initial load
+    var target = document.querySelector('head > title');
+    var observer = new MutationObserver(function(mutations) { // listen for page change (based on page title)
+        addOptions(); // add options again on page change
+    });
+    observer.observe(target, { subtree: true, characterData: true, childList: true });
+}
+)();

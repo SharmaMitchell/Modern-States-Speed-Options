@@ -2,6 +2,7 @@
 // @name         Modern States Speed Options
 // @namespace    http://tampermonkey.net/
 // @version      1.0
+// @downloadURL  https://raw.githubusercontent.com/SharmaMitchell/Modern-States-Speed-Options/main/script.js
 // @description  Additional Speed options for modern states courses
 // @author       Mitchell Sharma
 // @match        https://courses.modernstates.org/courses/*

@@ -15,6 +15,5 @@
         for (let i = 0; i < 4; i++){
             let newOptionDiv = `<li data-speed="${speedOptions[i]}"><button class="control speed-option" tabindex="-1" aria-pressed="false">${speedOptions[i]}x</button></li>`
             menu.insertAdjacentHTML("afterbegin",newOptionDiv);
-            console.log(speedOptions[i]);
         }
 })();
